@@ -1,7 +1,7 @@
 name: APK Compilation (Android)
 
 on:
-  workflow_dispatch: 
+  workflow_dispatch:
 
 env:
   JAVA_VERSION: "17.x"
