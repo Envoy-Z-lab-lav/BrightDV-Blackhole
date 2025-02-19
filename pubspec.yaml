@@ -64,6 +64,10 @@ dependencies:
   youtube_explode_dart: ^2.3.6
 
 dependency_overrides:
+  audiotagger:
+    git:
+      url: https://github.com/Envoy-Z-lab-lav/Audiotagger.git
+      ref: master
   fading_edge_scrollview: ^4.1.1
 
 dev_dependencies:
