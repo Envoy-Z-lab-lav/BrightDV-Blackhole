@@ -12,10 +12,7 @@ subprojects {
 subprojects {
     project.buildDir = "${rootProject.buildDir}/${project.name}"
     afterEvaluate {
-        // check if android block is available
-
         if (it.hasProperty('android')) {
-
             if (it.android.namespace == null) {
                 def manifest = new XmlSlurper().parse(file(it.android.sourceSets.main.manifest.srcFile))
                 def packageName = manifest.@package.text()
@@ -25,7 +22,7 @@ subprojects {
 
             def javaVersion = JavaVersion.VERSION_17
             android {
-                def androidApiVersion = 33
+                def androidApiVersion = 34
                 compileSdkVersion androidApiVersion
                 defaultConfig {
                     targetSdkVersion androidApiVersion
@@ -43,9 +40,7 @@ subprojects {
                 println("Setting compileSdkVersion and targetSdkVersion to $androidApiVersion")
             }
         }
-
     }
-
 }
 subprojects {
     project.evaluationDependsOn(':app')
