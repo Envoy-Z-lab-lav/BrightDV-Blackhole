@@ -1,0 +1,57 @@
+name: APK Compilation (Android)
+
+on:
+  workflow_dispatch:
+
+env:
+  JAVA_VERSION: "17.x"
+  FLUTTER_CHANNEL: "stable"
+
+jobs:
+  apk_compilation: 
+    name: "APK Compilation"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      # Setup Java
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: ${{ env.JAVA_VERSION }}
+          distribution: 'temurin'
+          cache: "gradle" 
+
+      # Cache Gradle Dependencies
+      - name: Cache Gradle Dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
+      # Setup Flutter
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: ${{ env.FLUTTER_CHANNEL }}
+          cache: true
+
+      # Install Dependencies
+      - name: Install Flutter Dependencies
+        run: flutter pub get
+
+      # Build APKs
+      - run: flutter build apk --debug --split-per-abi
+
+      # Upload APKs
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: flutter-apks
+          path: build/app/outputs/flutter-apk/app-armeabi-v7a-debug.apk
