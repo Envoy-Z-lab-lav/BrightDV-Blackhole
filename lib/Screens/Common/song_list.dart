@@ -37,7 +37,7 @@ import 'package:blackhole/Models/url_image_generator.dart';
 import 'package:blackhole/Screens/Shows/show.dart';
 import 'package:blackhole/Services/player_service.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:blackhole/localization/generated/app_localizations.dart';
 import 'package:logging/logging.dart';
 import 'package:share_plus/share_plus.dart';
 

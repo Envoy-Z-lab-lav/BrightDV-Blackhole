@@ -5,7 +5,7 @@ import 'package:blackhole/Screens/Home/saavn.dart' as home_screen;
 import 'package:blackhole/Screens/Top Charts/top.dart' as top_screen;
 import 'package:blackhole/constants/countrycodes.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:blackhole/localization/generated/app_localizations.dart';
 import 'package:hive/hive.dart';
 
 class MusicPlaybackPage extends StatefulWidget {

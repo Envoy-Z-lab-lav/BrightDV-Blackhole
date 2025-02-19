@@ -29,7 +29,7 @@ import 'package:blackhole/Helpers/spotify_helper.dart';
 import 'package:blackhole/Screens/Search/search.dart';
 import 'package:blackhole/constants/countrycodes.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:blackhole/localization/generated/app_localizations.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
